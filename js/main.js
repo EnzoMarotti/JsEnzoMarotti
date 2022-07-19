@@ -64,7 +64,7 @@ while (familiares != "esc");
 
 // Ejemplo Switch
 
-let entrada = prompt("Ingresa tu nombre. escribe 'ESC' para salir");
+let entrada = prompt("Ingresa tu nombre. Escribe 'ESC' para salir.");
 
 while(entrada != "ESC" ){
    switch (entrada) {
@@ -78,5 +78,5 @@ while(entrada != "ESC" ){
            alert("Si eres un tutor/a o profesor/a de coder, escribe tu nombre!")
            break;
    }
-   entrada = prompt("Ingresa tu nombre");
+   entrada = prompt("Ingresa tu nombre. Escribe 'ESC' para salir.");
 }
