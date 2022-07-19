@@ -1,39 +1,82 @@
-// const AñoActual = 2022;
+// // // Ejemplo If- Else If - else
 
-// AñoVehiculo = parseInt (prompt ("Ingrese el año de su vehículo"));
+const AñoActual = 2022;
 
-// let antiguedad = AñoActual- AñoVehiculo;
+AñoCompra = parseInt (prompt ("Ingrese el año de compra del televisor"));
 
-// if ( antiguedad <= 10) {
-//     alert ("Su vehiculo debe abonar 200 dolares de patente");
-// }
+let garantia = AñoActual- AñoCompra;
 
-// else if (antiguedad > 10) {
-//     alert ("Su vehiculo no debe abonar patente")
-// }
+if ( garantia <= 4) {
+    alert ("Su televisor esta cubierto por nuestra garantía, comuniquese con soporte técnico");
+}
 
-// else {
-//     alert ("ingrese un valor numerico valido")
-// }
+else if (garantia > 4) {
+    alert ("Su televisor ya no se encuentra bajo garantía. Lo sentimos.")
+}
 
-
-
-// Ciclos Por conteo
-
-let i= 1;
-
-// for (let i=1; i<= 10; i++) {
-//     alert (i);
-// }
+else {
+    alert ("ingrese un valor numerico valido")
+}
 
 
-// Multiplicar
-
-let ingresarNumero = parseInt(prompt ("ingrese un numero"));
-
-for (let i=1; i<=10; i++) {
-    let resultado = ingresarNumero * i;
 
 
-console.log (ingresarNumero + " X "+ i + "=" + resultado);
+// // For Entrega:  Calculo para saber el pago diario segun la cantidad de horas trabajadas usando "for"
+
+let PagoPorHora = parseInt(prompt("Ingresar el pago por hora que recibe para calcular el monto segun las horas trabajadas."));
+
+for (let i = 1; i <= 12; i++) {
+    let resultado = PagoPorHora * i ;
+
+    console.log(PagoPorHora +" X "+ i +" = "+ resultado);
+}
+
+
+
+
+// //While entrega: Juego de adivinanza (no vale ver el codigo jaja)
+ 
+    let usuario = parseInt (prompt ("Adivina el numero que estoy pensando del 1 al 10"));
+
+    while (usuario != 8){
+
+        alert ("Fallaste, intenta nuevamente");
+
+        usuario = prompt ("Prueba con otro numero");
+
+        if (usuario == 8) {
+            alert ("adivinaste. El numero que estoy pensando es " + usuario)
+        }
+    }
+
+
+// Do... While ejemplo.
+
+let familiares = prompt ("Ingrese los nombres de las personas que conviven con usted. cuando finalice, escriba 'esc'")
+
+do{
+    familiares = prompt ("Ingrese los nombres de las personas que conviven con usted. cuando finalice, escriba 'esc'")
+
+    console.log (familiares);
+}
+while (familiares != "esc");
+
+
+// Ejemplo Switch
+
+let entrada = prompt("Ingresa tu nombre. escribe 'ESC' para salir");
+
+while(entrada != "ESC" ){
+   switch (entrada) {
+       case "Bruno":
+            alert("HOLA tutor Bruno, Bienvenido!");
+            break;
+        case "Laura":
+            alert("HOLA Laura, bienvenida a mi código JS");
+            break;
+       default:
+           alert("Si eres un tutor/a o profesor/a de coder, escribe tu nombre!")
+           break;
+   }
+   entrada = prompt("Ingresa tu nombre");
 }
