@@ -1,82 +1,160 @@
-// // // Ejemplo If- Else If - else
+// Primera entrega: Simulador de venta de videojuegos.
 
-const AñoActual = 2022;
 
-AñoCompra = parseInt (prompt ("Ingrese el año de compra del televisor"));
+const sumarIva = (precio) => {return precio + (precio * 0.35)}
+const mostrarMensaje = (mensaje) => { alert(mensaje) }
 
-let garantia = AñoActual- AñoCompra;
 
-if ( garantia <= 4) {
-    alert ("Su televisor esta cubierto por nuestra garantía, comuniquese con soporte técnico");
+let plataforma = parseInt(prompt("Ingrese el numero correspondiente para ver el catálogo de la consola seleccionada \n 1)PS4. \n2)Xbox." ))
+
+main ();
+function main (){
+    if (plataforma == 1) {
+        videojuegoPS4 ();
+        valorJuegosPS4 ();
+    }
+
+    else if (plataforma == 2){
+        videoJuegoXbox ();
+        valorJuegosXbox ();
+    }
+
+    else 
+    console.log ("ingrese un número válido.")
+    
 }
 
-else if (garantia > 4) {
-    alert ("Su televisor ya no se encuentra bajo garantía. Lo sentimos.")
+function videojuegoPS4 () {
+    console.log ("1)God Of War. \n 2)Bloodborne. \n 3)Red Dead Redemption 2. \n 4)Uncharted 4.")
 }
 
-else {
-    alert ("ingrese un valor numerico valido")
-}
+function videoJuegoXbox () {  
+    console.log ("1)Halo Infinite \n 2)Forza Horizon 5 \n 3)Elden Ring \n 4)Hades")
+} 
 
 
 
 
-// // For Entrega:  Calculo para saber el pago diario segun la cantidad de horas trabajadas usando "for"
-
-let PagoPorHora = parseInt(prompt("Ingresar el pago por hora que recibe para calcular el monto segun las horas trabajadas."));
-
-for (let i = 1; i <= 12; i++) {
-    let resultado = PagoPorHora * i ;
-
-    console.log(PagoPorHora +" X "+ i +" = "+ resultado);
-}
+//Consultar precio juegos PS4.
 
 
+precioVideojuego = 0;
 
 
-// //While entrega: Juego de adivinanza (no vale ver el codigo jaja)
- 
-    let usuario = parseInt (prompt ("Adivina el numero que estoy pensando del 1 al 10"));
+function valorJuegosPS4 () {
 
-    while (usuario != 8){
+ let precioPS4 = prompt("Elija el numero  correspondiente al juego para saber su precio \n 1)God Of War \n2) Bloodborne. \n3)Read Dead Redemption 2. \n4) Uncharted 4. \nPresione 'EXIT' para salir.")
 
-        alert ("Fallaste, intenta nuevamente");
+    if  (precioPS4 == 1){
+    
+                precioVideojuego = sumarIva (4000)
+    
+                mostrarMensaje("God of War tiene un costo final de " +precioVideojuego);
+                cantidadPorUnidad();
+                
 
-        usuario = prompt ("Prueba con otro numero");
+    }
+    else if (precioPS4 == 2){
+                 precioVideojuego = sumarIva (2300)
+    
+                 mostrarMensaje ("Bloodborne tiene un costo final de " +precioVideojuego);
+                 cantidadPorUnidad();
+    }
 
-        if (usuario == 8) {
-            alert ("adivinaste. El numero que estoy pensando es " + usuario)
-        }
+    else if (precioPS4 == 3){
+        
+                precioVideojuego = sumarIva (5500)
+
+                mostrarMensaje ("Read dead Redemption 2 tiene un costo final de " +precioVideojuego);
+                cantidadPorUnidad();
+    }
+        
+    else if (precioPS4 == 4){
+        
+                precioVideojuego = sumarIva (2700)
+                mostrarMensaje ("Just Cause 4 tiene un costo final de " +precioVideojuego)
+                cantidadPorUnidad();
+    }
+
+    else if (precioPS4 == "EXIT" || precioPS4 == "exit") {
+            return false;
     }
 
 
-// Do... While ejemplo.
+    else {
+        mostrarMensaje ("No tenemos ese videojuego")
+    }
 
-let familiares = prompt ("Ingrese los nombres de las personas que conviven con usted. cuando finalice, escriba 'esc'")
-
-do{
-    familiares = prompt ("Ingrese los nombres de las personas que conviven con usted. cuando finalice, escriba 'esc'")
-
-    console.log (familiares);
+    
+    valorJuegosPS4 ();    
 }
-while (familiares != "esc");
 
 
-// Ejemplo Switch
 
-let entrada = prompt("Ingresa tu nombre. Escribe 'ESC' para salir.");
 
-while(entrada != "ESC" ){
-   switch (entrada) {
-       case "Bruno":
-            alert("HOLA tutor Bruno, Bienvenido!");
-            break;
-        case "Laura":
-            alert("HOLA Laura, bienvenida a mi código JS");
-            break;
-       default:
-           alert("Si eres un tutor/a o profesor/a de coder, escribe tu nombre!")
-           break;
-   }
-   entrada = prompt("Ingresa tu nombre. Escribe 'ESC' para salir.");
+//Consultar precios Xbox 
+
+
+function valorJuegosXbox () {
+
+ let precioXbox = prompt("Elija el numero  correspondiente al juego para saber su precio \n 1)Halo Infinite \n 2)Forza Horizon 5 \n 3)Elden Ring \n 4)Hades \nPresione 'EXIT' para salir.")
+
+    if  (precioXbox == 1){
+    
+                precioVideojuego = sumarIva (3500)
+    
+                mostrarMensaje("Halo Infinite tiene un costo final de " +precioVideojuego);
+
+                cantidadPorUnidad();
+                
+
+    }
+    else if (precioXbox == 2){
+        precioVideojuego = sumarIva (5000)
+    
+        mostrarMensaje ("Forza Horizon 5 tiene un costo final de " +precioVideojuego);
+        cantidadPorUnidad();
+    }
+
+    else if (precioXbox == 3){
+        
+            precioVideojuego = sumarIva (4500)
+
+            mostrarMensaje ("Elden Ring tiene un costo final de " +precioVideojuego);
+            cantidadPorUnidad();
+    }
+        
+    else if (precioXbox == 4){
+        
+            precioVideojuego = sumarIva (2100)
+            mostrarMensaje ("Hades tiene un costo final de " +precioVideojuego)
+            cantidadPorUnidad();
+    }
+
+    else if (precioXbox == "EXIT" || precioXbox == "exit") {
+        return false;
+    }
+
+
+    else {
+        mostrarMensaje ("No tenemos ese videojuego")
+    }
+    
+    valorJuegosXbox ();  
 }
+
+
+//Calcular costo por cantidad del mismo juego.
+
+function cantidadPorUnidad () {
+
+    let Cantidad = parseInt(prompt("Ingresa la cantidad de copias del juego que deseas. Debes repetir la acción por cada juego que selecciones."));
+    
+    for (i = 1; i <= Cantidad; i++) {     
+        let resultado = precioVideojuego * i ;
+
+        console.log(precioVideojuego, " X "+ i +" = "+ resultado);
+    }
+
+}
+
