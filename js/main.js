@@ -1,160 +1,91 @@
-// Primera entrega: Simulador de venta de videojuegos.
-
-
-const sumarIva = (precio) => {return precio + (precio * 0.35)}
-const mostrarMensaje = (mensaje) => { alert(mensaje) }
-
-
-let plataforma = parseInt(prompt("Ingrese el numero correspondiente para ver el catálogo de la consola seleccionada \n 1)PS4. \n2)Xbox." ))
-
-main ();
-function main (){
-    if (plataforma == 1) {
-        videojuegoPS4 ();
-        valorJuegosPS4 ();
+class Serv{
+    constructor(Servicio, precio){
+        this.Servicio = Servicio.toLowerCase();
+        this.precio = (precio);
     }
-
-    else if (plataforma == 2){
-        videoJuegoXbox ();
-        valorJuegosXbox ();
-    }
-
-    else 
-    console.log ("ingrese un número válido.")
-    
 }
 
-function videojuegoPS4 () {
-    console.log ("1)God Of War. \n 2)Bloodborne. \n 3)Red Dead Redemption 2. \n 4)Uncharted 4.")
-}
-
-function videoJuegoXbox () {  
-    console.log ("1)Halo Infinite \n 2)Forza Horizon 5 \n 3)Elden Ring \n 4)Hades")
-} 
+const Servicios=[]
 
 
 
+let ingreso= prompt  ("Ingrese el nombre de la comida que desea ordenar: \nrissoto de calabaza. \nwrap proteico. \nchicken pasta. \nprotein pizza. \nprotein pancakes. \nprotein smooties. \n Para terminar la orden, escriba 'f' y dele a aceptar.").toLowerCase();
 
-//Consultar precio juegos PS4.
+let precio=0;
 
+function calcular(){
 
-precioVideojuego = 0;
-
-
-function valorJuegosPS4 () {
-
- let precioPS4 = prompt("Elija el numero  correspondiente al juego para saber su precio \n 1)God Of War \n2) Bloodborne. \n3)Read Dead Redemption 2. \n4) Uncharted 4. \nPresione 'EXIT' para salir.")
-
-    if  (precioPS4 == 1){
+ while (ingreso != "f") {
     
-                precioVideojuego = sumarIva (4000)
     
-                mostrarMensaje("God of War tiene un costo final de " +precioVideojuego);
-                cantidadPorUnidad();
-                
-
-    }
-    else if (precioPS4 == 2){
-                 precioVideojuego = sumarIva (2300)
     
-                 mostrarMensaje ("Bloodborne tiene un costo final de " +precioVideojuego);
-                 cantidadPorUnidad();
-    }
-
-    else if (precioPS4 == 3){
-        
-                precioVideojuego = sumarIva (5500)
-
-                mostrarMensaje ("Read dead Redemption 2 tiene un costo final de " +precioVideojuego);
-                cantidadPorUnidad();
-    }
-        
-    else if (precioPS4 == 4){
-        
-                precioVideojuego = sumarIva (2700)
-                mostrarMensaje ("Just Cause 4 tiene un costo final de " +precioVideojuego)
-                cantidadPorUnidad();
-    }
-
-    else if (precioPS4 == "EXIT" || precioPS4 == "exit") {
-            return false;
-    }
-
-
-    else {
-        mostrarMensaje ("No tenemos ese videojuego")
-    }
-
+    switch(ingreso) {
+    case "rissoto de calabaza":
+    Servicios.push  (new Serv ("rissoto de calabaza",1100));
+    precio = precio + 1100;
+    break;
     
-    valorJuegosPS4 ();    
+    case "wrap proteico":
+    Servicios.push  (new Serv ("wrap proteico",500));
+    precio= precio + 500;
+    break;
+    
+    case "chicken pasta":
+    Servicios.push  (new Serv ("chicken pasta",900));
+    precio = precio + 900;
+    break;
+    
+    case "protein pizza":
+    Servicios.push  (new Serv ("protein pizza",899));
+    precio= precio + 899;
+    break;
+    
+    case "protein pancakes":
+    Servicios.push  (new Serv ("protein pancakes",400));
+    precio = precio + 400;
+    break;
+    
+    case "protein smooties":
+    Servicios.push  (new Serv ("protein smooties",500));
+    precio = precio + 500;
+    break;
+    
+
+
+
 }
 
 
 
 
-//Consultar precios Xbox 
+if (precio == 0){
+    console.log("usted no ha selecciono nada")
+}
 
+console.table(Servicios);
 
-function valorJuegosXbox () {
-
- let precioXbox = prompt("Elija el numero  correspondiente al juego para saber su precio \n 1)Halo Infinite \n 2)Forza Horizon 5 \n 3)Elden Ring \n 4)Hades \nPresione 'EXIT' para salir.")
-
-    if  (precioXbox == 1){
-    
-                precioVideojuego = sumarIva (3500)
-    
-                mostrarMensaje("Halo Infinite tiene un costo final de " +precioVideojuego);
-
-                cantidadPorUnidad();
-                
-
-    }
-    else if (precioXbox == 2){
-        precioVideojuego = sumarIva (5000)
-    
-        mostrarMensaje ("Forza Horizon 5 tiene un costo final de " +precioVideojuego);
-        cantidadPorUnidad();
-    }
-
-    else if (precioXbox == 3){
-        
-            precioVideojuego = sumarIva (4500)
-
-            mostrarMensaje ("Elden Ring tiene un costo final de " +precioVideojuego);
-            cantidadPorUnidad();
-    }
-        
-    else if (precioXbox == 4){
-        
-            precioVideojuego = sumarIva (2100)
-            mostrarMensaje ("Hades tiene un costo final de " +precioVideojuego)
-            cantidadPorUnidad();
-    }
-
-    else if (precioXbox == "EXIT" || precioXbox == "exit") {
-        return false;
-    }
-
-
-    else {
-        mostrarMensaje ("No tenemos ese videojuego")
-    }
-    
-    valorJuegosXbox ();  
+ingreso = prompt  ("Ingrese el nombre de la comida que desea ordenar: \nrissoto de calabaza, \nwrap proteico, \nchicken pasta, \nprotein pizza, \nprotein pancakes, \nprotein smooties. \n Para terminar la orden, escriba 'f' y dele a aceptar.").toLowerCase();
+      
 }
 
 
-//Calcular costo por cantidad del mismo juego.
 
-function cantidadPorUnidad () {
+let filt = Servicios.filter ((ser) => ser.precio < 500)
+console.log(filt);
+let filt2 = Servicios.filter ((ser) => ser.precio >= 500 && ser.precio < 900)
+console.log(filt2);
+let filt3 = Servicios.filter ((ser) => ser.precio >= 900 && ser.precio < 1200)
+console.log(filt3);
+let filt4 = Servicios.filter ((ser) => ser.precio >= 1200 && ser.precio < 1500)
+console.log(filt4);
 
-    let Cantidad = parseInt(prompt("Ingresa la cantidad de copias del juego que deseas. Debes repetir la acción por cada juego que selecciones."));
-    
-    for (i = 1; i <= Cantidad; i++) {     
-        let resultado = precioVideojuego * i ;
+ivaIncluido=precio*1.21;
 
-        console.log(precioVideojuego, " X "+ i +" = "+ resultado);
-    }
+console.log("precio final"+" $"+ ivaIncluido + (" (iva incluido)"));
+
+
+
 
 }
 
+calcular();
