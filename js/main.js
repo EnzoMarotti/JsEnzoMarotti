@@ -1,56 +1,84 @@
-const carrito=[];
+// ARRAYS
 
-class Producto {
-    constructor(nombre, imagen, precio) {
-        this.nombre = nombre.toUpperCase();
-        this.imagen = imagen;
-        this.precio = parseInt(precio);
-      }
-}
+let carrito=[];
+let precioTotal =[];
+const initialValue = 0;
 
-const PS4 = []
-
-
-PS4.push(new Producto("Elden Ring","../img/eldenRing.jpg", 12000));
-PS4.push(new Producto("Horizon Forbidden West", "../img/horizon.jpg", 12000));
-PS4.push(new Producto("Resident Evil 8 Village", "../img/RE8.png", 9000));
-
-
-
-const Gamecards=document.getElementById ("PS4");
-
-const mostrar = () =>{
-    for (let juegos of PS4) {
-        Gamecards.innerHTML +=
-        `
-        <div class="card" style="width: 18rem;">
-            <img src="${juegos.imagen}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">${juegos.nombre}</h5>
-                <p class="card-text">${juegos.precio}</p>
-                <a href="#" id="btnCompra" class="btn btn-primary">agregar al carrito</a>
-            </div>
-        </div>
-        `
+if(localStorage.getItem("carrito")){
+    carrito=JSON.parse(localStorage.getItem("carrito"));
     }
+    //cargar los elementos del carro abandonado a la tabla
+
+let lista=document.getElementById("milista");
+    
+//llamada a renderizar
+renderizarProductos();
+
+function renderizarProductos() {
+    for (const producto of PS4) {
+        lista.innerHTML+=`<li class="col-sm-3 list-group-item">
+            <h3> ID: ${producto.id} </h3>
+            <img src=${producto.imagen} width="250" height="250">
+            <p> Producto: ${producto.nombre}</p>
+            <p><strong> $ ${producto.precio} </strong></p>
+            <button class='btn btn-danger' id='btn${producto.id}'>Comprar</button>
+        </li>`;
+    }
+    //eventos boton
+    PS4.forEach(producto =>{
+        //evento individual para cada boton
+        document.getElementById(`btn${producto.id}`).addEventListener("click",function(){
+            agregarAlCarrito(producto);
+        });
+    })
+}
+
+function agregarAlCarrito(producto){
+    carrito.push(producto);
+    console.log(carrito);
+    alert("Producto: "+producto.nombre+" agregado al carro!");   
+
+        precioTotal.push (producto.precio);
+    
+        const sumarPrecioTotal = precioTotal.reduce(
+            (previousValue, currentValue) => previousValue + currentValue,
+            initialValue
+          );
+          console.log(sumarPrecioTotal);
+
+
+    document.getElementById("tablabody").innerHTML+=`
+        <tr>
+            <td>${producto.id}</td>
+            <td>${producto.nombre}</td>
+            <td>$${producto.precio}</td>
+        </tr>
+    `;
+    localStorage.setItem("carrito",JSON.stringify(carrito));
+    localStorage.setItem("TotalAPagar",JSON.stringify(sumarPrecioTotal));
+    //sumar el total de la compra
+
+    
+}
+
+let finalizarCompra= document.getElementById ("finalizarCompra");
+
+finalizarCompra.addEventListener("click",precioFinal);
+
+function precioFinal () {
+    const pagar = JSON.parse(localStorage.getItem("TotalAPagar"))
+    alert ("el total de su compra es $" + pagar + ". \n Puede ver el resumen final en la tabla debajo.");
+
+    document.getElementById("tablabody").innerHTML+=`
+        <tr>
+            <td>${" "}</td>
+            <td>${" "}</td>
+            <td> TOTAL: $${pagar}</td>
+        </tr>
+    `;
+
+
 }
 
 
 
-const btnPS4 = document.getElementById ("btnPS4");
-
-btnPS4.addEventListener('click', mostrar);
-
-
-
-const btnAgregarCarrito = document.getElementById ("btnCompra");
-
-
-function AgregarItem (productoId) {
-    carrito.push (productoId)
-}
-
-btnAgregarCarrito.onclick = function (AgregarItem) {
-    AgregarItem ();
-}
-//Todavia no sale el carrito//

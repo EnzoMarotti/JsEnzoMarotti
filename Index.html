@@ -29,15 +29,15 @@
                 <a class="nav-link" aria-current="page" href="#">INICIO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/servicios.html">SERVICIOS</a>
+                <a class="nav-link" href="./pages/PS4.html">PLAY STATION</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/educacion.html">EDUCACIÓN</a>
+                <a class="nav-link" href="./pages/xbox.html">XBOX</a>
               </li>
-              <a class="nav-link" href="./pages/Kinesiologos.html">KINESIOLOGOS</a>
+              <a class="nav-link" href="./pages/consolas.html">CONSOLAS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./pages/TurnosOnline.html">TURNOS ONLINE</a>
+              <a class="nav-link" href="./pages/contenidoAdicional.html">CONTENIDO ADICIONAL</a>
               </li>
             </ul>
           </div>
@@ -45,14 +45,45 @@
       </nav>
 </header>
 
-<main>
-  <button id="btnPS4" type="button" class="btn btn-outline-primary">Primary</button>
-  <div id="PS4"></div>
+<div class="container">
+  <div id="fila_prueba" class="row" style="background-color:whitesmoke">
+      <div class="col">
+          <h1 class="text-center">Juegos PS4</h1>
+      </div>
+  </div>
+  
+  <div>
+      <ul id="milista" class="row list-group list-group-horizontal">
+          <!-- Aqui los productos -->
+      </ul>
+      <p></p>
+  </div>
+  
+  <div>
 
-</main>
+      <button id="finalizarCompra" type="button" class="btn btn-primary btn-lg">Finalizar Compra</button>
+      <h4>Tu carrito:</h4>
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Precio</th>
+                  
+
+
+              </tr>
+          </thead>
+          <tbody id="tablabody">
+              <!-- aqui tabla carrito -->
+          </tbody>
+      </table>
+  </div>
+</div>
   
   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="./js/productos.js"></script>
 <script src="./js/main.js"></script>       
 </body>
 </html>
