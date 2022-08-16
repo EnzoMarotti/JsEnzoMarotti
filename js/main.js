@@ -6,12 +6,14 @@ const initialValue = 0;
 
 if(localStorage.getItem("carrito")){
     carrito=JSON.parse(localStorage.getItem("carrito"));
+    sumarPrecioTotal=JSON.parse(localStorage.getItem("TotalAPagar"));
     }
-    //cargar los elementos del carro abandonado a la tabla
+
 
 let lista=document.getElementById("milista");
     
-//llamada a renderizar
+
+//  ----funcion encargada de generar las cards en base al array.
 renderizarProductos();
 
 function renderizarProductos() {
@@ -24,15 +26,19 @@ function renderizarProductos() {
             <button class='btn btn-danger' id='btn${producto.id}'>Comprar</button>
         </li>`;
     }
-    //eventos boton
+
+
+    //----eventos boton
     PS4.forEach(producto =>{
-        //evento individual para cada boton
+        //----evento individual para cada boton
         document.getElementById(`btn${producto.id}`).addEventListener("click",function(){
             agregarAlCarrito(producto);
         });
     })
 }
 
+
+// ----Funcion para agregar al carro al hacer click.
 function agregarAlCarrito(producto){
     carrito.push(producto);
     console.log(carrito);
@@ -40,6 +46,7 @@ function agregarAlCarrito(producto){
 
         precioTotal.push (producto.precio);
     
+        //  ----Constante que me ayuda a sumar los precios de los objetos clickeados.
         const sumarPrecioTotal = precioTotal.reduce(
             (previousValue, currentValue) => previousValue + currentValue,
             initialValue
@@ -47,6 +54,7 @@ function agregarAlCarrito(producto){
           console.log(sumarPrecioTotal);
 
 
+        //   ----Tabla donde se representan los elementos agregados al carrito.
     document.getElementById("tablabody").innerHTML+=`
         <tr>
             <td>${producto.id}</td>
@@ -54,17 +62,21 @@ function agregarAlCarrito(producto){
             <td>$${producto.precio}</td>
         </tr>
     `;
+
+    //  ----Agregar al storage local tanto el carrito como el precio final.
     localStorage.setItem("carrito",JSON.stringify(carrito));
     localStorage.setItem("TotalAPagar",JSON.stringify(sumarPrecioTotal));
-    //sumar el total de la compra
-
     
 }
 
+
+//  ----Boton finalizar compra
 let finalizarCompra= document.getElementById ("finalizarCompra");
 
 finalizarCompra.addEventListener("click",precioFinal);
 
+
+//  ---- Función que trae del storage el precio final a pagar y lo muestra tanto por alert como en la tabla.
 function precioFinal () {
     const pagar = JSON.parse(localStorage.getItem("TotalAPagar"))
     alert ("el total de su compra es $" + pagar + ". \n Puede ver el resumen final en la tabla debajo.");
@@ -76,7 +88,6 @@ function precioFinal () {
             <td> TOTAL: $${pagar}</td>
         </tr>
     `;
-
 
 }
 
