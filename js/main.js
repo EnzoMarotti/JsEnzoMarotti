@@ -39,10 +39,15 @@ function renderizarProductos() {
 
 
 // ----Funcion para agregar al carro al hacer click.
+// ---- Agregado los alerts
 function agregarAlCarrito(producto){
     carrito.push(producto);
     console.log(carrito);
-    alert("Producto: "+producto.nombre+" agregado al carro!");   
+Swal.fire(
+    producto.nombre,
+    'agregado al carro!',
+    'success'
+  )  
 
         precioTotal.push (producto.precio);
     
@@ -79,7 +84,42 @@ finalizarCompra.addEventListener("click",precioFinal);
 //  ---- Función que trae del storage el precio final a pagar y lo muestra tanto por alert como en la tabla.
 function precioFinal () {
     const pagar = JSON.parse(localStorage.getItem("TotalAPagar"))
-    alert ("el total de su compra es $" + pagar + ". \n Puede ver el resumen final en la tabla debajo.");
+    
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: 'Deseas finalizar la compra?',
+        text: 'Puede ver el resumen final en la tabla debajo.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Finalizar compra',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Compra realizada',
+            'Recibira toda la informacion en su correo electronico',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Compra cancelada',
+            'Su compra ha sido cancelada, el carrito se encuentra vacio',
+            'error'
+          )
+        }
+      })
+    alert ();
 
     document.getElementById("tablabody").innerHTML+=`
         <tr>
@@ -92,4 +132,5 @@ function precioFinal () {
 }
 
 
-
+//Cosas que quedan por hacer para la entrega final:
+// Agregar un boton de sacar items del carrito y que los elimine de storage.
