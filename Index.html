@@ -1,90 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
-<title>JS</title>
+    <meta charset="UTF 8">
+    <script src="https://kit.fontawesome.com/89cf8a655b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/indexstyle.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/sweetalert.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="./css/swiper.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<title>Javascript - Coderhouse Proyecto 😎 </title>
 </head>
-<body>
+<!-- Inicio de Navbar -->
 
-  <header>
-    <nav  class="navbar navbar-expand-lg bg-dark ">
-        <div class="container-fluid">
-            <div class="header__p">
-                <a href="./index.html"><img  class="logo img-fluid"  src="./Imagenes/LogoPrincipal.png" alt=""></a>
-                <p>
-                    Logo (todavia no terminado)
-                </p>
-            </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse  justify-content-end" id="navbarNav">
-            <ul class="navbar-nav align-items-center navbar-dark">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">INICIO</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/PS4.html">PLAY STATION</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/xbox.html">XBOX</a>
-              </li>
-              <a class="nav-link" href="./pages/consolas.html">CONSOLAS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./pages/contenidoAdicional.html">CONTENIDO ADICIONAL</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+<body class="body">
+<header class="header">
+    <nav class="header_navbar">
+        <a href="#"><img class="logo" src="./images/Xcompany.png" alt="Logo"></a>
+            <button class="hamburger" id="hamburger"> <i class="fas fa-bars"></i></button>
+        <ul class="nav-ul" id="nav-ul">
+            <li id="nosotros"><a href="#"><i class="fa-solid fa-credit-card" id="nosotros"></i>Nosotros</a></li>
+            <li id="carrito"><a href="./html/carrito.html"><i class="fa-solid fa-cart-shopping" ></i>Carrito</a></li>
+            <li><a href="./html/contacto.html"><i class="fa-solid fa-user"></i>Storage</a></li>
+            <li><a><i class="fa-solid fa-magnifying-glass" class="header_navbar_search"></i><input type="text" placeholder="Buscar"  id="btn-busqueda"></a></li>
+            <div id="divProductos-busqueda"></div>
+        </ul>
+    </nav>
 </header>
-
-<div class="container">
-  <div id="fila_prueba" class="row" style="background-color:whitesmoke">
-      <div class="col">
-          <h1 class="text-center">Juegos PS4</h1>
-      </div>
-  </div>
-  
-  <div>
-      <ul id="milista" class="row list-group list-group-horizontal">
-          <!-- Aqui los productos -->
-      </ul>
-      <p></p>
-  </div>
-  
-  <div>
-
-      <button id="finalizarCompra" type="button" class="btn btn-primary btn-lg">Finalizar Compra</button>
-      <h4>Tu carrito:</h4>
-      <table class="table table-striped">
-          <thead>
-              <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Precio</th>
-                  
-
-
-              </tr>
-          </thead>
-          <tbody id="tablabody">
-              <!-- aqui tabla carrito -->
-          </tbody>
-      </table>
-  </div>
-</div>
-  
-  
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script src="./js/productos.js"></script>
-<script src="./js/main.js"></script>       
+<!-- Fin de navbar -->
+<!-- Inicio de Main -->
+<main class="main">
+    <h1>Bienvenido a mi Proyecto CoderHouse 😎</h1>
+    <!-- Slider main container -->
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+    <div class="swiper-slide"><p>Apple Iphone 13 Mini</p><a id="swiperlink1" href="#"><button id="btn-swiper" class="swiper-slide-button" type="button" >Ver más<i class="fa-solid fa-arrow-up-right-from-square"></i></button></a><img src="./img/Iphone.jpg"></div>
+    <div class="swiper-slide"><p>Redmi Note 10 Pro</p><a id="swiperlink2" href="#"><button id="btn-swiper" class="swiper-slide-button" type="button" >Ver más<i class="fa-solid fa-arrow-up-right-from-square"></i></button></a><img src="./img/XiaomiBackground.jpg"></div>
+    <div class="swiper-slide"><p>Samsung A72</p><a id="swiperlink3" href="#"><button id="btn-swiper" class="swiper-slide-button" type="button" >Ver más<i class="fa-solid fa-arrow-up-right-from-square"></i></button></a><img src="./img/Samsung.jpg"></div>
+    <div class="swiper-slide"><p>Redmi Note 10 Pro</p><a id="swiperlink4" href="#"><button id="btn-swiper" class="swiper-slide-button" type="button" >Ver más<i class="fa-solid fa-arrow-up-right-from-square"></i></button></a><img src="./img/XiaomiBackground.jpg"></div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    </div>
+    <div id="divProductos"></div>
+    <!-- Swiper -->
+</main>
+<!-- Fin de Main -->
+<!--Inicio de footer  -->
+<footer class="footer">
+    <div class="seccion_footer">
+        <div class="footer_informacion">
+            <h3> Sobre Nosotros</h3>
+            <p class="footer_parrafo"> Somos una empresa que nos apasiona la venta de celulares y accesorios! </p>
+        </div>
+        <div class="footer_metodosdepago">
+            <h4> Metodos de Pago</h4>
+                <ul>
+                    <li><i class="fa-brands fa-cc-visa"></i></li>
+                    <li><i class="fa-brands fa-cc-mastercard"></i></li>
+                    <li><i class="fa-brands fa-cc-paypal"></i></li>
+                </ul>
+        </div>
+        <div class="footer_redessociales">
+            <h5>Redes Sociales</h5>
+            <ul>
+                <li id="rede1"><a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+                <li id="rede2"><a href="#"><i class="fa-brands fa-twitter"></i>Twitter</a></li>
+                <li id="rede3"><a href="#"><i class="fa-brands fa-youtube"></i>Youtube</a></li>
+                <li id="rede4"><a href="#"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- Final de footer -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="./js/swiper.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
+<script src="./js/alertify.js"></script>
+<script src="./js/main.js"></script>
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+</body> 
+<!-- Fin de body -->
 </html>
