@@ -24,7 +24,7 @@ carritoStorage.forEach((carritoStorage) => {
             <div class="productos_carrito_tarjetas">
                 <h3>Modelo: ${carritoStorage.nombre}</h3>
                 <p>Precio: $${carritoStorage.precio}</p>
-                <img class="image_contain" src="../images/phoneSymbol.png">
+                <img class="image_contain" src="../img/phoneSymbol.png">
             </div>
         </div>
     `

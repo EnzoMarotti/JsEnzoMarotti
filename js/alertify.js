@@ -9,23 +9,7 @@ document.getElementById('nosotros').addEventListener('click', ()=>{
     })
 })
 
-//Alerts del Carrousel
 
-document.getElementById("swiperlink1").addEventListener('click', ()=> {
-    alertify.error('Por el momento esta sección no está disponible 😅')
-})
-
-document.getElementById("swiperlink2").addEventListener('click', ()=> {
-    alertify.error('Por el momento esta sección no está disponible 😅')
-})
-
-document.getElementById("swiperlink3").addEventListener('click', ()=> {
-    alertify.error('Por el momento esta sección no está disponible 😅')
-})
-
-document.getElementById("swiperlink4").addEventListener('click', ()=> {
-    alertify.error('Por el momento esta sección no está disponible 😅')
-})
 
 
 
@@ -71,3 +55,20 @@ Swal.fire({
 
 
 
+//Alerts del Carrousel
+
+document.getElementById("swiperlink1").addEventListener('click', ()=> {
+    alertify.error('Por el momento esta sección no está disponible 😅')
+})
+
+document.getElementById("swiperlink2").addEventListener('click', ()=> {
+    alertify.error('Por el momento esta sección no está disponible 😅')
+})
+
+document.getElementById("swiperlink3").addEventListener('click', ()=> {
+    alertify.error('Por el momento esta sección no está disponible 😅')
+})
+
+document.getElementById("swiperlink4").addEventListener('click', ()=> {
+    alertify.error('Por el momento esta sección no está disponible 😅')
+})
